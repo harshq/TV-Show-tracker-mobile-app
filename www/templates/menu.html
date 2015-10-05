@@ -1,0 +1,48 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content >
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" class="ash-background"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu class="dark-background" side="left">
+    <ion-header-bar class="red-background">
+      <img class="center-block" height="25" width="116" src="img/logo.png">
+    </ion-header-bar>
+    <ion-content >
+      <ion-list >
+        <ion-item>
+            <img class="float" height="50" width="50" src="img/user2-160x160.png">
+            <div class="float left-pad-15">
+                  <p class="text-white">Lahiru Abeyaratne</p>
+                  <small class="text-white small-text"><i class="fa fa-circle text-success"></i> Online</small>
+            </div>
+        </ion-item>
+        <ion-item class="item-divider">
+          QUICK LINKS
+        </ion-item>
+        <ion-item ui-sref-active="active"  menu-close ui-sref="app.home">
+        <i class="fa fa-home right-margin-10"></i> Home
+        </ion-item>
+        <ion-item ui-sref-active="active" menu-close ui-sref="app.request">
+        <i class="fa fa-folder right-margin-10"></i> Request a show
+        </ion-item>
+        <ion-item ui-sref-active="active" menu-close ui-sref="app.calendar">
+        <i class="fa fa-calendar right-margin-10"></i> Event Calendar
+        </ion-item>
+        <ion-item ui-sref-active="active" menu-close ui-sref="app.settings">
+          <i class="fa fa-wrench right-margin-10"></i> Settings
+        </ion-item>
+           <ion-item ui-sref-active="active" menu-close>
+          <i class="fa fa-share right-margin-10"></i> Log out
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

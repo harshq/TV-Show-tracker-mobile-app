@@ -1,0 +1,65 @@
+/* Empty. Add your own CSS if you like */
+.red-background {
+	background-color: #D33724;
+	border : none;
+}
+
+.center-block {
+	margin: 0 auto;
+}
+
+.dark-background {
+	background-color: #222D32;
+}
+
+.dark-background .item-complex .item-content  , .item{
+	background-color: #222D32;
+	border : none;
+	color: #b8c7ce;
+	border-left : 2px solid #222D32;
+} 
+
+.dark-background .item.active, .item.activated, .dark-background .item-complex.active .item-content, .dark-background .item-complex.activated .item-content, .dark-background .item .item-content.active, .dark-background .item .item-content.activated{
+	background-color: #1E282C;
+	color : #fff;
+	border-left : 2px solid #D33724;
+}
+
+.dark-background .item-divider{
+	background-color: #1A2226!important;
+	color: #4b646f!important;
+	font-weight: 400;
+	
+}
+
+.text-success{
+	color: #3c763d;
+}
+
+.small-text{
+	font-size: 12px!important;
+}
+
+.text-white{
+	color: #fff!important;
+}
+
+a{
+	text-decoration: none;
+}
+
+.float{
+	float: left;
+}
+
+.left-pad-15{
+	padding-left: 15px;
+}
+
+.right-margin-10{
+	margin-right: 10px;
+}
+
+.ash-background{
+	background-color: #ECF0F5;
+}
