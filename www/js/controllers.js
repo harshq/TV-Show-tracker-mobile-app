@@ -52,6 +52,14 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('HomeCtrl' , function($scope){
+  
+  this.foo = "foo";
+
+
+
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
   $scope.params = $stateParams.playlistId;
 
