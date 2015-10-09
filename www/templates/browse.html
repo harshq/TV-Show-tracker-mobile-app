@@ -1,5 +1,50 @@
-<ion-view view-title="Browse">
+<ion-view class="dark-background" view-title="Browse">
   <ion-content>
-    <h1>Browse</h1>
+
+  	<div class="search-box">
+  		<input class="text-ash" ng-model="browse.search" type="text" placeholder="Search ...">	
+  	</div>
+    
+   		
+
+   <div class="container">
+
+   		
+   		
+
+    	<div ng-repeat="event in browse.events | filter : { name : browse.search  } track by $index"  class="full-width-card">
+    		
+
+    		<div on-tap="browse.activateTab($index)" background="{{event.fanart}}">
+	    		<a style="color: white; display: block; padding : 10px; position: relative; left : 88%; font-size: 16px"><i class="fa fa-times"></i></a>
+	    		<div class="card-content" >
+	    			<h2 class="text-white card-title line-height-1">{{event.name}}</h2>
+	    			<p class="text-white card-desc"><b>{{event.airsDayOfWeek}}</b> at <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
+	    		</div>
+	    	</div>
+
+    		<div class="card-more" ng-class="{ 'extent-card' : browse.activatedTab === $index }">
+    			
+
+    			<div class="btn-bar">
+				  <a class="btn-subscribe text-ash"><i class="fa fa-plus right-margin-10"></i>Subscribe</a>
+				  <a class="btn-up text-ash"><i class="fa fa-thumbs-up"></i></a>
+				  <a class="btn-down text-ash"><i class="fa fa-thumbs-down"></i></a>
+				</div>
+
+    			<!-- <h3 style="margin-bottom:0px;" class="text-ash text-center card-subtitle">{{event.episode[0].episodeName}}</h3>
+    			<p class=" text-center text-ash top-pad-5 text-200">Season {{event.episode[0].season}} Episode {{event.episode[0].episodeNumber}} </p> -->
+    			
+
+
+
+    			<p class="text-ash">{{event.overview}}</p>
+    		</div>
+
+    </div>
+
+
+
+
   </ion-content>
 </ion-view>

@@ -4,10 +4,24 @@ angular.module('starter.directives', [])
 	return {
 		restrict : 'A',
 		link : function(scope, element, att){
-			element.css({
-			    'background-image': 'url(' + att.background +')',
-			    'background-size' : '100% auto'
-			});           
+
+				scope.$watch(function(){
+					element.css({
+				    'background-image': 'url(' + att.background +')',
+				    'background-size' : 'cover',
+				    'background-repeat': 'no-repeat'
+				});   
+
+
+			}, true);
+
+
+			
+
+
+
+
+
 		}
 	}
 });

@@ -3,49 +3,23 @@
 
     <div class="container">
 
-    	<div background="img/fanart.jpg" class="full-width-card">
-    		<div class="card-content">
-    			<h2 class="text-white card-title">Blindspot</h2>
-    			<p class="text-white card-desc">At <b>10/9C</b> on <b>USA Network</b></p>
+    	<div ng-repeat="event in home.events track by $index" class="full-width-card">
+            <div on-tap="home.activateTab($index)" background="{{event.fanart}}">
+        		<div class="card-content">
+        			<h2 class="text-white card-title line-height-1">{{event.name}}</h2>
+        			<p class="text-white card-desc">At <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
+        		</div>
+            </div>
+
+    		<div class="card-more" ng-class="{ 'extent-card' : home.activatedTab === $index }">
+    			<h3 style="margin-bottom:0px;" class="text-ash text-center card-subtitle">{{event.episode[0].episodeName}}</h3>
+    			<p class=" text-center text-ash top-pad-5 text-200">Season {{event.episode[0].season}} Episode {{event.episode[0].episodeNumber}} </p>
+    			<p class="text-ash">{{event.episode[0].overview}}</p>
     		</div>
-    		<div class="card-more">
-    			<h3 class="text-ash text-center line-height-none">Plot</h3>
-    			<p class=" text-center text-ash top-pad-5 text-200">Season 1 Episode 1 </p>
-    			<p class="text-ash">A beautiful woman, with no memories of her past, is found naked in Times Square with her body fully covered in intricate tattoos. Her discovery sets off a vast and complex mystery that immediately ignites the attention of the FBI, which begins to follow the road map on her body into a larger conspiracy of crime, while bringing her closer to discovering the truth about her identity.</p>
-    		</div>
+
     	</div>
 
-
-    	<div background="img/f.jpg" class="full-width-card">
-    		<div class="card-content">
-    			<h2 class="text-white card-title">True Detectives</h2>
-    			<p class="text-white card-desc">At <b>10/9C</b> on <b>USA Network</b></p>
-    		</div>
-    	</div>
-
-    	<div background="img/g.jpg" class="full-width-card">
-    		<div class="card-content">
-    			<h2 class="text-white card-title">The Last Ship</h2>
-    			<p class="text-white card-desc">At <b>10/9C</b> on <b>USA Network</b></p>
-    		</div>
-    	</div>
-
-    	<div background="img/h.jpg" class="full-width-card">
-    		<div class="card-content">
-    			<h2 class="text-white card-title">Proof</h2>
-    			<p class="text-white card-desc">At <b>10/9C</b> on <b>USA Network</b></p>
-    		</div>
-    	</div>
-
-    	<div background="img/i.jpg" class="full-width-card">
-    		<div class="card-content">
-    			<h2 class="text-white card-title">Flash</h2>
-    			<p class="text-white card-desc">At <b>10/9C</b> on <b>USA Network</b></p>
-    		</div>
-    	</div>
-    	
     </div>
-
 
   </ion-content>
 </ion-view>

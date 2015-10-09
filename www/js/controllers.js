@@ -41,26 +41,83 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('HomeCtrl' , function($scope){
+.controller('HomeCtrl' , function($scope, shows){
+  var vm = this;
   
-  this.foo = "foo";
+  var events = shows.getTodayShows.query(function(){
+    
 
+    var data = events.map(function(event){
+        var obj = {};
+        obj.name = event.name;
+        obj.network = event.network;
+        obj.airsTime = event.airsTime;
+        obj.fanart = event.fanart;
+
+        obj.episode = event.episodes.filter(function(episode){
+            var today = new Date().toISOString().substring(0,10) + 'T00:00:00.000Z';
+            return episode.firstAired === today;
+        });
+        return obj;
+
+    });
+    console.log(data);
+    vm.events = data;
+  });
+
+  vm.activateTab = function(index){
+
+    if(index === vm.activatedTab){
+      vm.activatedTab = null;
+    }else{
+      vm.activatedTab = index;
+    }
+    
+  
+  };
 
 
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-  $scope.params = $stateParams.playlistId;
+.controller('BrowseCtrl', function($scope, shows) {
+  var vm = this;
+  
+  var events = shows.getAllShows.query(function(){
+
+    var data = events.map(function(event){
+        var obj = {};
+        obj.name = event.name;
+        obj.network = event.network;
+        obj.airsTime = event.airsTime;
+         obj.fanart = event.fanart;
+         obj._id = event._id;
+         obj.airsDayOfWeek = event.airsDayOfWeek;
+    //     obj.firstAired: event.firstAired;
+    //     obj.contentRating: event.contentRating;
+        obj.overview = event.overview;
+    //     obj.rating: event.rating;
+    //     obj.imdbId: event.imdbId;
+    //     obj.runtime: event.runtime;
+         obj.status = event.status;
+    //     obj.poster: event.poster;
+
+        return obj;
+
+    });
+  
+    vm.events = data;
+  });
+
+  vm.activateTab = function(index){
+
+    if(index === vm.activatedTab){
+      vm.activatedTab = null;
+    }else{
+      vm.activatedTab = index;
+    }
+    
+  
+  };
+
 
 });
