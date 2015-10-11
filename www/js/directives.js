@@ -6,6 +6,7 @@ angular.module('starter.directives', [])
 		link : function(scope, element, att){
 
 				scope.$watch(function(){
+					
 					element.css({
 				    'background-image': 'url(' + att.background +')',
 				    'background-size' : 'cover',
@@ -14,14 +15,6 @@ angular.module('starter.directives', [])
 
 
 			}, true);
-
-
-			
-
-
-
-
-
 		}
 	}
 });

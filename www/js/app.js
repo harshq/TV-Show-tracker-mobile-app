@@ -27,12 +27,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
 
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
-
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'AppCtrl as app'
   })
 
   .state('app.home', {
@@ -44,8 +43,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
       }
     }
   })
-
-  
 
   .state('app.request', {
     url: '/request',
@@ -65,12 +62,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         }
       }
     })
+
+  .state('app.more', {
+    url: '/more',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/more.html',
+        controller : 'MoreCtrl as more'
+      }
+    }
+  })
+
     .state('app.calendar', {
       url: '/calendar',
       views: {
         'menuContent': {
           templateUrl: 'templates/calendar.html',
-          controller: 'PlaylistsCtrl'
+         
         }
       }
     })

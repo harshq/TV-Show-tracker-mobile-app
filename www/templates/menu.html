@@ -7,6 +7,12 @@
         <button class="button button-icon button-clear ion-navicon text-white" menu-toggle="left">
         </button>
       </ion-nav-buttons>
+       <ion-nav-buttons side="right">
+
+          <button side="right" ng-class="{ 'search-icon-active' : app.isSearchActive }" ng-click="app.showSearch() && app.isSearchActive()" class="button button-clear ion-search text-white search-icon ">
+
+          </button>
+       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent" class="ash-background"></ion-nav-view>
   </ion-side-menu-content>

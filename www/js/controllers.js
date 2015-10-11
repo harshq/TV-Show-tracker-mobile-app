@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, searchBar) {
+  var vm = this;
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,36 +10,45 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  vm.isSearchActive = false;
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  vm.showSearch = function(){
+    searchBar.toggle();
+    vm.isSearchActive = !vm.isSearchActive
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
   };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+ 
+  // // Form data for the login modal
+  // $scope.loginData = {};
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  // // Create the login modal that we will use later
+  // $ionicModal.fromTemplateUrl('templates/login.html', {
+  //   scope: $scope
+  // }).then(function(modal) {
+  //   $scope.modal = modal;
+  // });
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+  // // Triggered in the login modal to close it
+  // $scope.closeLogin = function() {
+  //   $scope.modal.hide();
+  // };
+
+  // // Open the login modal
+  // $scope.login = function() {
+  //   $scope.modal.show();
+  // };
+
+  // // Perform the login action when the user submits the login form
+  // $scope.doLogin = function() {
+  //   console.log('Doing login', $scope.loginData);
+
+  //   // Simulate a login delay. Remove this and replace with your login
+  //   // code if using a login system
+  //   $timeout(function() {
+  //     $scope.closeLogin();
+  //   }, 1000);
+  // };
 })
 
 .controller('HomeCtrl' , function($scope, shows){
@@ -73,14 +83,29 @@ angular.module('starter.controllers', [])
       vm.activatedTab = index;
     }
     
-  
   };
-
 
 })
 
-.controller('BrowseCtrl', function($scope, shows) {
+.controller('BrowseCtrl', function($scope, shows, searchBar,$ionicScrollDelegate , selectedShow) {
   var vm = this;
+  vm.showSearch = function(){
+    var isSearchActive = searchBar.getStatus();
+      if(!isSearchActive){
+        vm.search = "";
+      }
+      return isSearchActive;
+  }; 
+
+  vm.scrollTop = function() {
+    $ionicScrollDelegate.scrollTop();
+    vm.activatedTab = null;
+  }
+
+  vm.setSelectedShow = function(show){
+      selectedShow.setShow(show);
+  };
+
   
   var events = shows.getAllShows.query(function(){
 
@@ -108,6 +133,8 @@ angular.module('starter.controllers', [])
     vm.events = data;
   });
 
+
+
   vm.activateTab = function(index){
 
     if(index === vm.activatedTab){
@@ -115,9 +142,17 @@ angular.module('starter.controllers', [])
     }else{
       vm.activatedTab = index;
     }
-    
-  
+
   };
+
+
+
+
+})
+.controller('MoreCtrl' , function(selectedShow) {
+  var vm = this;
+  vm.show = selectedShow.getShow();
+
 
 
 });
