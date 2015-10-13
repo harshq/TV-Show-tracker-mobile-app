@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('remindme.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, searchBar) {
   var vm = this;
@@ -87,7 +87,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('BrowseCtrl', function($scope, shows, searchBar,$ionicScrollDelegate , selectedShow) {
+.controller('BrowseCtrl', function($scope, shows, searchBar, selectedShow) {
   var vm = this;
   vm.showSearch = function(){
     var isSearchActive = searchBar.getStatus();
@@ -117,14 +117,17 @@ angular.module('starter.controllers', [])
          obj.fanart = event.fanart;
          obj._id = event._id;
          obj.airsDayOfWeek = event.airsDayOfWeek;
-    //     obj.firstAired: event.firstAired;
-    //     obj.contentRating: event.contentRating;
+         obj.firstAired = event.firstAired;
+         obj.contentRating = event.contentRating;
         obj.overview = event.overview;
-    //     obj.rating: event.rating;
-    //     obj.imdbId: event.imdbId;
-    //     obj.runtime: event.runtime;
+         obj.rating = event.rating;
+         obj.imdbId = event.imdbId;
+         obj.genre = event.genre;
+         obj.runtime = event.runtime;
          obj.status = event.status;
-    //     obj.poster: event.poster;
+         obj.poster = event.poster;
+         obj.actors = event.actors;
+         obj.episodes = event.episodes;
 
         return obj;
 
@@ -149,9 +152,43 @@ angular.module('starter.controllers', [])
 
 
 })
-.controller('MoreCtrl' , function(selectedShow) {
+.controller('MoreCtrl' , function(selectedShow,$ionicPopup,$scope,$timeout) {
   var vm = this;
+  
   vm.show = selectedShow.getShow();
+
+
+  vm.openModel = function(){
+
+  var myPopup = $ionicPopup.show({
+       templateUrl: 'templates/season-select.html',
+       title: 'Select a season',
+       scope: $scope
+       
+  });
+
+  $scope.closePopup = function(selectedSeason){
+      vm.selectedSeason = selectedSeason;
+      $timeout(function(){
+         console.log('clicked');
+         myPopup.close();
+      }, 200);
+    };
+
+  };
+
+  vm.seasonCount = function(){
+    var unique = {};
+    var distinct = [];
+      for( var i in vm.show.episodes ){
+        if( typeof(unique[vm.show.episodes[i].season]) == "undefined"){
+            distinct.push(vm.show.episodes[i].season);
+        }
+        unique[vm.show.episodes[i].season] = 0;
+      }
+    return distinct;
+  };
+
 
 
 

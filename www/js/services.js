@@ -1,4 +1,4 @@
-angular.module('starter.services' , ['ngResource'])
+angular.module('remindme.services' , ['ngResource'])
 
 .factory('shows' , function($resource){
 

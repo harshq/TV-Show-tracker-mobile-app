@@ -6,15 +6,17 @@
     	<div ng-repeat="event in home.events track by $index" class="full-width-card">
             <div on-tap="home.activateTab($index)" background="{{event.fanart}}">
         		<div class="card-content">
-        			<h2 class="text-white card-title line-height-1">{{event.name}}</h2>
-        			<p class="text-white card-desc">At <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
-        		</div>
+                    <div>
+        			     <h2 class="text-white card-title line-height-1">{{event.name}}</h2>
+        			     <p class="text-white card-desc">At <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
+        		    </div>
+                </div>
             </div>
 
     		<div class="card-more" ng-class="{ 'extent-card' : home.activatedTab === $index }">
     			<h3 style="margin-bottom:0px;" class="text-ash text-center card-subtitle">{{event.episode[0].episodeName}}</h3>
     			<p class=" text-center text-ash top-pad-5 text-200">Season {{event.episode[0].season}} Episode {{event.episode[0].episodeNumber}} </p>
-    			<p class="text-ash">{{event.episode[0].overview}}</p>
+    			<p class="text-ash">{{event.episode[0].overview}}<span style="text-align: center; display:block;" ng-show="!event.episode[0].overview">Overview not available!</span></p>
     		</div>
 
     	</div>

@@ -1,0 +1,11 @@
+<div style="width: 100%; height: 80px; padding:16px; border-bottom: 1px solid rgba(0,0,0,0.1); margin-bottom: 5px; display : flex; x-justify-content: space-around; x-align-items: stretch;">
+<div style=" width: 45px; flex: 0 0 45px; background-color: rgba(0,0,0,0.1); font-align: center;">
+	<span style="display: block;
+    text-align: center;
+    margin-top: 14px;">S{{ episode.season }}E{{ episode.episodeNumber }}</span>
+</div>
+<div style="margin-left: 10px; flex-grow :1; ">
+	<h2 style="font-size:16px; line-height: 1; margin-bottom:5px;">{{ episode.episodeName }}</h2>
+	<p><i class="fa fa-clock-o"></i><span style="margin-left: 5px;">{{ episode.firstAired | limitTo : 10 }}<span></p>
+</div>
+</div>

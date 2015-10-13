@@ -1,5 +1,84 @@
-<ion-view class="dark-background" view-title="{{more.show.name}}">
-  <ion-content>
-    <h1>Details</h1>
+<ion-view class="dark-background" view-title="Details">
+  <ion-content delegate-handle="mainScroll" id="more-page" >
+
+   <div class="container">
+   	<div class="full-width-card">
+
+		<div class="more-img"  background-parallax="{{more.show.poster}}">
+			<div class="more-img-container">
+					
+					<div class="box-bottom">
+						
+						<h3 class="text-white">{{ more.show.name | removeBrackets }}</h3>
+						<div style="margin-bottom:10px;">
+							
+							<span ng-repeat="genre in more.show.genre" class="tags">{{genre}}</span>
+
+						</div>
+						<!-- <p class="text-white"><i style="margin-right:4px; margin-left:2px;" class="fa fa-clock-o"></i> {{more.show.airsDayOfWeek}} at {{more.show.airsTime}} on {{more.show.network}}</p> -->
+
+
+					</div>
+
+			</div>
+
+
+		</div>
+
+		<div style="padding: 0px;" class="more-info">
+			
+
+			<div style="padding-bottom:40px;" ui-view name="tabViews"></div>
+
+ 
+			
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+   </div>
+
+
+
+
   </ion-content>
+
+ <div style="padding:0px;" class="footer-section bar bar-footer dark-background">
+
+  <div style="padding:0px;" class="tabs tabs-icon-left dark-background">
+  <a class="tab-item dark-background" ui-sref-active="active-tab"  ui-sref="app.more.overview">
+    <i class="icon ion-android-hangout"></i>
+    Overview
+  </a>
+  <a class="tab-item dark-background" ui-sref-active="active-tab" ui-sref="app.more.cast">
+    <i class="icon ion-android-contacts"></i>
+    Cast
+  </a>
+  <a class="tab-item dark-background" ui-sref-active="active-tab" ui-sref="app.more.episodes">
+    <i class="icon ion-arrow-right-b"></i>
+    Episodes
+  </a>
+</div>
+
+
+
+
+</div>
+
 </ion-view>

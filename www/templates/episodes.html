@@ -1,0 +1,37 @@
+<div class="text-ash">
+
+
+
+
+<div style="padding-bottom: 0px" class="season-select tab-view">
+
+<h3 class="more-tab-subheader">Episodes</h3>
+
+  <button ng-click="more.openModel()" class="button button-block button-outline button-stable">{{ more.selectedSeason || more.selectedSeason ===0 ? 'Season '+ more.selectedSeason : 'Select a season...' }}
+  
+  </button>
+ 
+</div>
+
+
+
+
+
+
+<div style="min-height: 25vh; padding-bottom: 10px;" class="container">
+
+	<episode-item ng-if="more.selectedSeason === 0 || !!more.selectedSeason " ng-repeat="episode in more.show.episodes | filter : { 'season' : more.selectedSeason } " episode="episode" ></episode-item>
+
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>

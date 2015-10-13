@@ -15,8 +15,11 @@
 
     		<div on-tap="browse.activateTab($index)" background="{{event.fanart}}">
 	    		<div class="card-content" >
-	    			<h2 class="text-white card-title line-height-1">{{event.name}}</h2>
-	    			<p class="text-white card-desc"><b>{{event.airsDayOfWeek}}</b> at <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
+          <div style="padding-top:3em;">
+    	    			<h2 class="text-white card-title line-height-1">{{event.name}}</h2>
+    	    			<p class="text-white card-desc"><b>{{event.airsDayOfWeek}}</b> at <b>{{event.airsTime}}</b> on <b>{{event.network}}</b></p>
+          </div>
+
 	    		</div>
 	    	</div>
 
@@ -37,7 +40,7 @@
 
     			<p class="text-ash">{{event.overview}}</p>
 
-    			<a class="browse-more text-ash" ng-click="browse.setSelectedShow(event)"  ui-sref="app.more">More <i class="fa fa-chevron-circle-right"></i></a>
+    			<a class="browse-more text-ash" ng-click="browse.setSelectedShow(event)"  ui-sref="app.more.overview">More <i class="fa fa-chevron-circle-right"></i></a>
     		</div>
 
     </div>

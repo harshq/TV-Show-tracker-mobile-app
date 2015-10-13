@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'starter.services'])
+angular.module('remindme', ['ionic', 'remindme.controllers', 'remindme.directives', 'remindme.services','remindme.filters'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -73,22 +73,49 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     }
   })
 
-    .state('app.calendar', {
-      url: '/calendar',
+  .state('app.more.overview', {
+    url: "/overview",
+    views: {
+      'tabViews' :{
+        templateUrl: "templates/overview.html"
+      }
+    }
+  })
+      .state('app.more.cast', {
+    url: "/cast",
+    views: {
+      'tabViews' :{
+        templateUrl: "templates/cast.html"
+      }
+    }
+  })
+
+    .state('app.more.episodes', {
+      url: '/episodes',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/calendar.html',
+        'tabViews': {
+          templateUrl: 'templates/episodes.html',
          
         }
       }
     })
 
+ .state('app.calendar', {
+    url: '/calendar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/calendar.html'
+        
+      }
+    }
+  })
+   
   .state('app.settings', {
     url: '/settings',
     views: {
       'menuContent': {
-        templateUrl: 'templates/settings.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/settings.html'
+        
       }
     }
   });

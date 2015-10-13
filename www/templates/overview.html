@@ -1,0 +1,17 @@
+<div class="text-ash tab-view">
+
+<h3 class="more-tab-subheader">Overview</h3>
+
+<ul>
+  <li><i class="fa fa-video-camera"></i><span style="display:inline-block; width:100px; font-weight:600; padding-left:10px;"> Broadcast </span>{{  more.show.airsDayOfWeek }} at {{ more.show.airsTime }}</li>
+   <li><i class="fa fa-bookmark"></i><span style="display:inline-block; width:100px; font-weight:600; padding-left:10px;"> Channel </span>On {{ more.show.network }} </li>
+   <li><i class="fa fa-play"></i><span style="display:inline-block; width:100px; font-weight:600; padding-left:10px;"> Runtime </span>{{ more.show.runtime }} minutes </li>
+    <li><i class="fa fa-star"></i><span style="display:inline-block; width:100px; font-weight:600; padding-left:10px;"> IMDB Rating </span>{{ more.show.rating }}</li>
+     <li><i class="fa fa-rocket"></i><span style="display:inline-block; width:100px; font-weight:600; padding-left:10px;"> First Aired </span>{{ more.show.firstAired | limitTo : 10 }}</li>
+      
+</ul>
+
+<p class="">{{ more.show.overview }}</p>
+
+
+</div>
